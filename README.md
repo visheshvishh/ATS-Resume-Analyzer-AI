@@ -1,4 +1,10 @@
-# ATS Resume Analyzer AI 🚀
+# ATS Resume Analyzer AI 🚀 
+🌐 Vercel Deployment- https://ats-resume-analyzer-ai.vercel.app/
+
+<img width="1618" height="876" alt="image" src="https://github.com/user-attachments/assets/4b45849d-b9d7-4f8f-afd4-b17adf8cf3ca" />
+<img width="1638" height="818" alt="image" src="https://github.com/user-attachments/assets/269c5c61-adbe-459b-b6b0-e4e5da8a85b1" />
+<img width="1646" height="857" alt="image" src="https://github.com/user-attachments/assets/dbaa2006-68a6-433e-93a4-70cee0a01db8" />
+
 
 AI-powered ATS Resume Analyzer that compares resumes with job descriptions and generates:
 
