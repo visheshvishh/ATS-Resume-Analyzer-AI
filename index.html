@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>
+    ATS Resume Analyzer AI
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="styles.css"
+  />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</head>
+
+<body>
+
+  <nav>
+
+    <div class="logo">
+      ATS Resume Analyzer AI
+    </div>
+
+  </nav>
+
+  <main>
+
+    <!-- TABS -->
+    <div class="tabs">
+
+      <button
+        class="tab on"
+        onclick="goTab('analyze',this)"
+      >
+        Analyze
+      </button>
+
+      <button
+        class="tab"
+        onclick="goTab('results',this)"
+      >
+        Results
+      </button>
+
+      <button
+        class="tab"
+        onclick="goTab('jobs',this)"
+      >
+        Job Links
+      </button>
+
+    </div>
+
+    <!-- ANALYZE -->
+    <div id="pane-analyze">
+
+      <div class="grid2">
+
+        <!-- RESUME -->
+        <div>
+
+          <div class="clabel">
+            Your Resume
+          </div>
+
+          <div
+            class="upload-zone"
+            id="dropzone"
+            onclick="document.getElementById('fileInput').click()"
+            ondragover="event.preventDefault();this.classList.add('drag')"
+            ondragleave="this.classList.remove('drag')"
+            ondrop="handleDrop(event)"
+          >
+
+            <input
+              type="file"
+              id="fileInput"
+              accept=".pdf,.txt,.docx"
+              onchange="handleFile(event.target.files[0])"
+            />
+
+            <div
+              class="u-icon"
+              id="uIcon"
+            >
+              📄
+            </div>
+
+            <div
+              class="u-title"
+              id="uTitle"
+            >
+              Drop your resume here
+            </div>
+
+            <div
+              class="u-sub"
+              id="uSub"
+            >
+              Click to browse files
+            </div>
+
+            <div class="u-formats">
+              PDF • DOCX • TXT • up to 10 MB
+            </div>
+
+          </div>
+
+          <div class="or-divider">
+            or paste manually
+          </div>
+
+          <textarea
+            id="resumeTxt"
+            placeholder="Paste your resume text here..."
+          ></textarea>
+
+        </div>
+
+        <!-- JD -->
+        <div>
+
+          <div class="clabel">
+            Job Description
+          </div>
+
+          <textarea
+            id="jdTxt"
+            placeholder="Paste job description here..."
+            style="min-height:470px"
+          ></textarea>
+
+          <div
+            style="
+              margin-top:.75rem;
+              display:flex;
+              gap:8px;
+              flex-wrap:wrap;
+            "
+          >
+
+            <button
+              class="btn btn-ghost btn-sm"
+              onclick="loadSample()"
+            >
+              Load Sample
+            </button>
+
+            <button
+              class="btn btn-ghost btn-sm"
+              onclick="document.getElementById('jdTxt').value=''"
+            >
+              Clear JD
+            </button>
+
+            <button
+              class="btn btn-primary btn-sm"
+              onclick="runAnalysis()"
+            >
+              ⚡ Analyze Match
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- RESULTS -->
+    <div
+      id="pane-results"
+      style="display:none"
+    >
+
+      <div
+        class="score-hero"
+        id="resultsBox"
+      >
+
+        <div class="ring-wrap">
+
+          <div class="ring-inner">
+
+            <div
+              class="ring-num"
+              id="ringNum"
+            >
+              0
+            </div>
+
+            <div class="ring-sub">
+              ATS SCORE
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="score-meta">
+
+          <div
+            class="score-grade"
+            id="resGrade"
+          ></div>
+
+          <div
+            class="score-summary"
+            id="resSummary"
+          ></div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- JOBS -->
+    <div
+      id="pane-jobs"
+      style="display:none"
+    >
+
+      <div
+        class="card"
+        id="jobsList"
+      ></div>
+
+    </div>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
