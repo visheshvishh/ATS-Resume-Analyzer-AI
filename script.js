@@ -39,8 +39,6 @@ function loadSample() {
     "resumeTxt"
   ).value = `Vishesh Vishwakarma
 Mumbai, India
-vishesh8828@gmail.com
-+91 9876543210
 
 FULL STACK DEVELOPER
 
