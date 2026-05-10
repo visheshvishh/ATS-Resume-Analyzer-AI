@@ -675,39 +675,81 @@ function runAnalysis() {
 
     <div>
 
-      <strong>
-        Matched Keywords:
-      </strong>
+  <strong style="color:#22d3a0">
+    ✅ Keywords Matched With JD:
+  </strong>
 
-      <br>
+  <br><br>
 
-      ${
-        matchedKeywords.join(
-          ", "
-        ) || "None"
-      }
+  ${
+    matchedKeywords.length > 0
 
-    </div>
+    ? matchedKeywords
+        .map(
+          (k) => `
+          <span
+            style="
+              display:inline-block;
+              margin:4px;
+              padding:6px 12px;
+              border-radius:999px;
+              background:rgba(34,211,160,.12);
+              color:#22d3a0;
+              border:1px solid rgba(34,211,160,.25);
+              font-size:.82rem;
+            "
+          >
+            ${k}
+          </span>
+        `
+        )
+        .join("")
 
-    <br>
+    : "None"
 
-    <div>
+  }
 
-      <strong style="color:#f43f5e">
-        Missing Keywords:
-      </strong>
+</div>
 
-      <br>
+<br>
 
-      ${
-        missingKeywords.join(
-          ", "
-        ) || "None"
-      }
+<div>
 
-    </div>
+  <strong style="color:#f43f5e">
+    ❌ Keywords Missing In Resume:
+  </strong>
 
-  </div>
+  <br><br>
+
+  ${
+    missingKeywords.length > 0
+
+    ? missingKeywords
+        .map(
+          (k) => `
+          <span
+            style="
+              display:inline-block;
+              margin:4px;
+              padding:6px 12px;
+              border-radius:999px;
+              background:rgba(244,63,94,.12);
+              color:#f43f5e;
+              border:1px solid rgba(244,63,94,.25);
+              font-size:.82rem;
+            "
+          >
+            ${k}
+          </span>
+        `
+        )
+        .join("")
+
+    : "None"
+
+  }
+
+</div>
   
   `;
 
